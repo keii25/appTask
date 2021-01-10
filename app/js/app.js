@@ -1,6 +1,6 @@
 let form = {
 
-    taskName : 'task',
+    taskName: 'task',
 
     processForm: function (form) {
         let frm = document.getElementById(form);
@@ -60,11 +60,10 @@ let form = {
     saveDataOnStorage(item, form) {
         let task = [];
 
-        if(!this.checkIfExistData(item))
-        {
+        if (!this.checkIfExistData(item)) {
             task.push(this.getValuesFromForm(form));
             localStorage.setItem(this.taskName, JSON.stringify(task));
-        }            
+        }
     },
 
     checkIfExistData(item) {
