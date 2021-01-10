@@ -1,7 +1,9 @@
 let form = {
 
+    // nombre del item para guardar en localstorage
     taskName: 'task',
 
+    //procesa el formulario en busca de los campos que se encuentren definidos
     processForm: function (form) {
         let frm = document.getElementById(form);
         let status = true;
@@ -22,18 +24,22 @@ let form = {
         return status;
     },
 
+    //revisa si el elemento esta undefined
     isUndefined(element) {
         return (element === undefined) ? true : false;
     },
 
+    //revisa si el elemento esta vacio o Corregir: cambiar a trim
     isEmptyOrNull(input) {
         return (input.value === "" || input.value.length === 0) ? true : false;
     },
 
+    //Verifica el tipo de campo del form
     checkType(input) {
         return (input.type === "text" || input.type === "textarea" || input.type === "date") ? true : false;
     },
 
+    //obtiene los valores del formulario y devuelve el objeto
     getValuesFromForm(form) {
         let frm = document.getElementById(form);
         let result = {};
@@ -50,6 +56,7 @@ let form = {
         return result;
     },
 
+    //metodo de ejecucion del formulario
     submitForm(form) {
         if (this.processForm(form))
             this.saveDataOnStorage(this.taskName, form);
@@ -57,6 +64,7 @@ let form = {
             console.log('error!');
     },
 
+    //guarda el formulario procesado
     saveDataOnStorage(item, form) {
         let task = [];
 
@@ -66,6 +74,7 @@ let form = {
         }
     },
 
+    //verifica que los datos existan
     checkIfExistData(item) {
         return (this.isUndefined(localStorage.getItem(item))) ? true : false;
     }
