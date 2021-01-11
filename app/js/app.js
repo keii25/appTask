@@ -26,17 +26,17 @@ let form = {
 
     //revisa si el elemento esta undefined
     isUndefined(element) {
-        return (element === undefined) ? true : false;
+        return element === undefined;
     },
 
     //revisa si el elemento esta vacio o Corregir: cambiar a trim
     isEmptyOrNull(input) {
-        return (input.value === "" || input.value.length === 0) ? true : false;
+        return input.value === "" || input.value.length === 0;
     },
 
     //Verifica el tipo de campo del form
     checkType(input) {
-        return (input.type === "text" || input.type === "textarea" || input.type === "date") ? true : false;
+        return input.type === "text" || input.type === "textarea" || input.type === "date";
     },
 
     //obtiene los valores del formulario y devuelve el objeto
